@@ -6,10 +6,11 @@ class ItemsController < ApplicationController
 
     def create
     item = Item.create(item_params)
-    if item.valid?
-        render json: item
-    else
-        render json: item.errors, status: 422
+        if item.valid?
+            render json: item
+        else
+            render json: item.errors, status: 422
+        end
     end
 
     private
